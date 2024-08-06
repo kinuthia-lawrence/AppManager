@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@." xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@." xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane BorderPane.alignment="TOP_CENTER">
          <children>
@@ -31,80 +31,81 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="59.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="83.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="76.0" minWidth="10.0" prefWidth="76.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0" prefWidth="61.0" />
+                  <ColumnConstraints />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Settings" textAlignment="CENTER">
+                  <Button fx:id="settingsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Settings" textAlignment="CENTER">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Dailing plan" textAlignment="CENTER" GridPane.columnIndex="1">
+                  <Button fx:id="dailingPlanButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Dailing plan" textAlignment="CENTER" GridPane.columnIndex="1">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Block Guard" textAlignment="CENTER" GridPane.columnIndex="2">
+                  <Button fx:id="blockGuardButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Block Guard" textAlignment="CENTER" GridPane.columnIndex="2">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Codec" textAlignment="CENTER" GridPane.columnIndex="3">
+                  <Button fx:id="CodecButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Codec" textAlignment="CENTER" GridPane.columnIndex="3">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="USSD API " textAlignment="CENTER" GridPane.columnIndex="4">
+                  <Button fx:id="ussdApiButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="USSD API " textAlignment="CENTER" GridPane.columnIndex="4">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="USSD" textAlignment="CENTER" GridPane.columnIndex="5">
+                  <Button fx:id="ussdButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="USSD" textAlignment="CENTER" GridPane.columnIndex="5">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="SMS" textAlignment="CENTER" GridPane.columnIndex="6">
+                  <Button fx:id="smsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="SMS" textAlignment="CENTER" GridPane.columnIndex="6">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Manage use" textAlignment="CENTER" GridPane.columnIndex="7">
+                  <Button fx:id="manageUseButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Manage use" textAlignment="CENTER" GridPane.columnIndex="7">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Black/white" textAlignment="CENTER" GridPane.columnIndex="8">
+                  <Button fx:id="BlackWhitelistButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Black/white list" textAlignment="CENTER" GridPane.columnIndex="8">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Recorded calls" textAlignment="CENTER" GridPane.columnIndex="9">
+                  <Button fx:id="recordCallsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Recorded calls" textAlignment="CENTER" GridPane.columnIndex="9">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="75.0" text="view model" GridPane.columnIndex="11">
+                  <Button fx:id="viewModelButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="75.0" text="view model" GridPane.columnIndex="11">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="logs" textAlignment="CENTER" GridPane.columnIndex="12">
+                  <Button fx:id="logsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="67.0" text="logs" textAlignment="CENTER" GridPane.columnIndex="12">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="help" textAlignment="CENTER" GridPane.columnIndex="13">
+                  <Button fx:id="helpButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="help" textAlignment="CENTER" GridPane.columnIndex="13">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="68.0" text="Online Monitoring" textAlignment="CENTER" GridPane.columnIndex="10" GridPane.columnSpan="5">
+                  <Button fx:id="onlineMonitorBUtton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="68.0" text="Online Monitoring" textAlignment="CENTER" GridPane.columnIndex="10" GridPane.columnSpan="5">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
@@ -126,12 +127,12 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Register to SIP Server" textFill="#32bfb1" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="registerToSipServerButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="160.0" text="Register to SIP Server" textFill="#32bfb1" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" prefWidth="160.0" text="SMPP Server Settings" textFill="#32bfb1" />
+                        <Button fx:id="smppServerSettins" mnemonicParsing="false" prefWidth="160.0" text="SMPP Server Settings" textFill="#32bfb1" />
                      </children>
                   </HBox>
                   <TilePane alignment="CENTER_LEFT" hgap="4.0" prefColumns="2" prefHeight="30.0" prefRows="1" GridPane.columnIndex="2">
@@ -141,14 +142,14 @@
                               <Font name="System Italic" size="10.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="iconTotalCalls" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/power-off.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label text="8">
+                        <Label fx:id="TotalCallsLabel" prefHeight="15.0" prefWidth="26.0" text="8">
                            <font>
                               <Font name="System Italic" size="10.0" />
                            </font>
@@ -162,49 +163,28 @@
                               <Font name="System Italic" size="10.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="15.0" prefWidth="88.0" text="server started" textFill="#0ba452">
+                        <Label fx:id="amppServerStatusLabel" prefHeight="15.0" prefWidth="88.0" text="server started" textFill="#0ba452">
                            <font>
                               <Font name="System Italic" size="10.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <TilePane alignment="CENTER_LEFT" hgap="4.0" prefColumns="2" prefHeight="30.0" prefRows="1" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <children>
-                        <Label text="Total calls :">
-                           <font>
-                              <Font name="System Italic" size="10.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/power-off.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Label>
-                        <Label text="8">
-                           <font>
-                              <Font name="System Italic" size="10.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </TilePane>
                   <TilePane alignment="CENTER_LEFT" hgap="4.0" prefColumns="2" prefHeight="30.0" prefRows="1" GridPane.columnIndex="3">
                      <children>
-                        <Label text="Total calls :">
+                        <Label prefHeight="20.0" prefWidth="54.0" text="ASR :">
                            <font>
                               <Font name="System Italic" size="10.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="iconASR" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/power-off.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label text="8">
+                        <Label fx:id="asrLabel" prefHeight="15.0" prefWidth="26.0" text="8">
                            <font>
                               <Font name="System Italic" size="10.0" />
                            </font>
@@ -213,19 +193,19 @@
                   </TilePane>
                   <TilePane alignment="CENTER_LEFT" hgap="4.0" layoutX="522.0" layoutY="10.0" prefColumns="2" prefHeight="30.0" prefRows="1" GridPane.columnIndex="4">
                      <children>
-                        <Label text="Total calls :">
+                        <Label prefHeight="20.0" prefWidth="67.0" text="ACD      :">
                            <font>
                               <Font name="System Italic" size="10.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="IconAcd" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/power-off.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label text="8">
+                        <Label fx:id="acdLabel" prefHeight="15.0" prefWidth="46.0" text="8">
                            <font>
                               <Font name="System Italic" size="10.0" />
                            </font>
@@ -234,19 +214,19 @@
                   </TilePane>
                   <TilePane alignment="CENTER_LEFT" hgap="4.0" prefColumns="2" prefHeight="30.0" prefRows="1" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <children>
-                        <Label text="Total calls :">
+                        <Label prefHeight="20.0" prefWidth="83.0" text="Lost Calls :">
                            <font>
                               <Font name="System Italic" size="10.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="iconLostCalls" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/power-off.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label text="8">
+                        <Label fx:id="lostCallsLabel" prefHeight="15.0" prefWidth="40.0" text="8">
                            <font>
                               <Font name="System Italic" size="10.0" />
                            </font>
@@ -260,16 +240,16 @@
                               <Font name="System Italic" size="10.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="15.0" prefWidth="99.0" text="Registration sucessful" textFill="#0ba452">
+                        <Label fx:id="sipServerStatusLabel" prefHeight="15.0" prefWidth="99.0" text="Registration sucessful" textFill="#0ba452">
                            <font>
                               <Font name="System Italic" size="10.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="10.0" layoutY="40.0" prefHeight="32.0" prefWidth="178.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="40.0" prefHeight="32.0" prefWidth="178.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="iconSms" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/power-off.png" />
                            </image>
@@ -284,7 +264,7 @@
                                     <Insets bottom="1.0" />
                                  </padding>
                               </Label>
-                              <Label layoutX="77.0" prefHeight="15.0" prefWidth="78.0" text="0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label fx:id="queueSMSLabel" layoutX="77.0" prefHeight="15.0" prefWidth="78.0" text="0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="System Italic" size="10.0" />
                                  </font>
@@ -300,7 +280,7 @@
                                     <Insets top="1.0" />
                                  </padding>
                               </Label>
-                              <Label layoutX="77.0" layoutY="11.0" prefHeight="15.0" prefWidth="78.0" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                              <Label fx:id="sentSMSLabel" layoutX="77.0" layoutY="11.0" prefHeight="15.0" prefWidth="78.0" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <font>
                                     <Font name="System Italic" size="10.0" />
                                  </font>
@@ -312,6 +292,27 @@
                         </AnchorPane>
                      </children>
                   </HBox>
+                  <TilePane alignment="CENTER_LEFT" hgap="4.0" prefColumns="2" prefHeight="30.0" prefRows="1" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="80.0" text="Utilization :">
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fx:id="iconUtilization" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/power-off.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <Label fx:id="utilizationLabel" prefHeight="15.0" prefWidth="33.0" text="8">
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </TilePane>
                </children>
                <padding>
                   <Insets bottom="5.0" />
@@ -326,7 +327,7 @@
          </padding>
       </AnchorPane>
    </top>
-   <center>
-      <AnchorPane prefHeight="401.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
-   </center>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" />
+   </padding>
 </BorderPane>
