@@ -10,8 +10,7 @@ import javafx.scene.layout.AnchorPane;
 public class ViewFactory {
     //? Initializing the ObjectProperty and the panes
     private final ObjectProperty dashboardSelectedItem;
-    private ScrollPane tableviewScrollPane;
-    private AnchorPane settingsAnchorPane;
+    private ScrollPane tableviewScrollPane , settingsScrollPane;
 
 
     //?constructor
@@ -37,16 +36,16 @@ public class ViewFactory {
         }
         return tableviewScrollPane;
     }
-    public AnchorPane getSettingsAnchorPane() {
-        if (settingsAnchorPane == null) {
+    public ScrollPane getSettingsScrollPane() {
+        if (settingsScrollPane == null) {
             try {
-                settingsAnchorPane = new FXMLLoader(getClass().getResource("/fxml/settings.fxml")).load();
+                settingsScrollPane = new FXMLLoader(getClass().getResource("/fxml/settings.fxml")).load();
             } catch (Exception e) {
                 System.out.println("Error loading settingsAnchorPane"+e.getMessage());
                 e.printStackTrace();
             }
         }
-        return settingsAnchorPane;
+        return settingsScrollPane;
     }
 
 

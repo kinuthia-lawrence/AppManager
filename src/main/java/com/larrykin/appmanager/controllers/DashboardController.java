@@ -126,7 +126,7 @@ public class DashboardController {
     borderPane.setCenter(Model.getInstance().getViewFactory().getTableviewScrollPane());
     Model.getInstance().getViewFactory().getDashboardSelectedItem().addListener((observable ,oldVal, newVal) ->{
         switch (newVal){
-            case SETTINGS -> borderPane.setCenter(Model.getInstance().getViewFactory().getSettingsAnchorPane());
+            case SETTINGS -> borderPane.setCenter(Model.getInstance().getViewFactory().getSettingsScrollPane());
             case TABLEVIEW -> borderPane.setCenter(Model.getInstance().getViewFactory().getTableviewScrollPane());
         }
     });

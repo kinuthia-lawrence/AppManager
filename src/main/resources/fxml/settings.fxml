@@ -1,11 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane fx:id="settingsPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.larrykin.appmanager.controllers.SettingsController">
-   <children>
-      <Label layoutX="272.0" layoutY="145.0" text="Settings" />
-   </children>
-</AnchorPane>
+<ScrollPane fx:id="settingsPane" prefHeight="503.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.larrykin.appmanager.controllers.SettingsController">
+   <content>
+      <AnchorPane prefHeight="502.0" prefWidth="800.0">
+         <children>
+            <Group layoutX="102.0" layoutY="60.0" />
+            <Label alignment="TOP_LEFT" layoutX="-2.0" layoutY="-1.0" prefHeight="15.0" prefWidth="46.0" text="Settings" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Label layoutX="23.0" layoutY="29.0" text="Software Role :" />
+            <Label layoutX="491.0" layoutY="29.0" text="Transport Type" />
+            <AnchorPane layoutX="586.0" layoutY="28.0" prefHeight="62.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="udpTransportRadioButton" layoutX="7.0" layoutY="6.0" mnemonicParsing="false" text="UDP">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="transportType" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="tlsTransportRadioButton" layoutX="7.0" layoutY="34.0" mnemonicParsing="false" text="TLS" toggleGroup="$transportType" />
+                  <RadioButton fx:id="tcpTransportRadioButton" layoutX="108.0" layoutY="6.0" mnemonicParsing="false" text="TCP" toggleGroup="$transportType" />
+                  <RadioButton fx:id="stcpTransportRadioButton" layoutX="110.0" layoutY="34.0" mnemonicParsing="false" text="S-TCP" toggleGroup="$transportType" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="101.0" layoutY="25.0" prefHeight="82.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="terminationRadioButton" layoutX="7.0" layoutY="6.0" mnemonicParsing="false" text="Termination">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="softwareRole" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="originationRadioButton" layoutX="7.0" layoutY="34.0" mnemonicParsing="false" text="Origination" toggleGroup="$softwareRole" />
+                  <RadioButton fx:id="terminationAndOriginationRadioButton" layoutX="7.0" layoutY="62.0" mnemonicParsing="false" text="Termination and Origination" toggleGroup="$softwareRole" />
+                  <RadioButton fx:id="callbackRadioButton" layoutX="108.0" layoutY="6.0" mnemonicParsing="false" text="Callback" toggleGroup="$softwareRole" />
+                  <RadioButton fx:id="whatsappRadioButton" layoutX="110.0" layoutY="34.0" mnemonicParsing="false" text="WhatsApp" toggleGroup="$softwareRole" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="39.0" layoutY="127.0" text="Prefix For Origination" />
+            <TextField fx:id="prefixForOrigination" layoutX="161.0" layoutY="123.0" />
+            <Label layoutX="400.0" layoutY="127.0" text="Prefix For Termination" />
+            <TextField fx:id="prefixForTermination" layoutX="548.0" layoutY="123.0" />
+            <Label layoutX="39.0" layoutY="165.0" text="Keep Alive Interval" />
+            <Label layoutX="39.0" layoutY="201.0" text="Delay Between Calls" />
+            <Label layoutX="39.0" layoutY="234.0" text="Trusted IP Address" />
+            <Label layoutX="39.0" layoutY="270.0" text="Calls Recording" />
+            <Label layoutX="39.0" layoutY="310.0" text="Avoid Robot captcha" />
+            <Label layoutX="39.0" layoutY="344.0" text="Routing Algorithm" />
+            <Label layoutX="39.0" layoutY="382.0" text="Logger text FIles" />
+            <TextField fx:id="keepAliveInterval" layoutX="161.0" layoutY="161.0" text="30" />
+            <TextField fx:id="DelayBetweenCalls" layoutX="161.0" layoutY="197.0" text="0" />
+            <TextField fx:id="trustedIPAddress" layoutX="161.0" layoutY="230.0" />
+            <Label layoutX="313.0" layoutY="165.0" text="seconds" />
+            <Label layoutX="313.0" layoutY="201.0" text="seconds" />
+            <Label layoutX="400.0" layoutY="302.0" text="Connection Mode" />
+            <Label layoutX="400.0" layoutY="270.0" text="SDP in Ringing Msg" />
+            <Label layoutX="400.0" layoutY="165.0" text="RTP Ports From" />
+            <Label layoutX="400.0" layoutY="201.0" text="Restart software every" />
+            <Label layoutX="400.0" layoutY="234.0" text="SIP Rejection Code" />
+            <TextField fx:id="RTPPortFrom" layoutX="548.0" layoutY="161.0" text="10000" />
+            <TextField fx:id="restartSoftwareEvery" layoutX="548.0" layoutY="197.0" text="12" />
+            <TextField fx:id="SIPRejectionCode" layoutX="548.0" layoutY="230.0" text="503" />
+            <Label layoutX="703.0" layoutY="201.0" text="Hours" />
+            <RadioButton fx:id="SDPinRinginNoRadioButton" layoutX="567.0" layoutY="270.0" mnemonicParsing="false" text="No">
+               <toggleGroup>
+                  <ToggleGroup fx:id="SDPInRingingMsg" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="SDPInRingingYesRadioButton" layoutX="631.0" layoutY="270.0" mnemonicParsing="false" text="Yes" toggleGroup="$SDPInRingingMsg" />
+            <ComboBox fx:id="connectionModeComboBox" layoutX="548.0" layoutY="298.0" prefWidth="150.0" />
+            <RadioButton fx:id="FistIdleRoutingAlgorithmRadio" layoutX="168.0" layoutY="346.0" mnemonicParsing="false" text="First Idle Sim">
+               <toggleGroup>
+                  <ToggleGroup fx:id="RoutingAlgorithm" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="utilizeBestAsrRoutingAlgorithRadio" layoutX="276.0" layoutY="346.0" mnemonicParsing="false" text="Utilize Best ASR" toggleGroup="$RoutingAlgorithm" />
+            <RadioButton fx:id="utilizeBestACDRoutingAlgorithRadio" layoutX="414.0" layoutY="346.0" mnemonicParsing="false" text="Utilize Best ACD" toggleGroup="$RoutingAlgorithm" />
+            <RadioButton fx:id="lowestLoadedRoutingAlgorithmRadio" layoutX="561.0" layoutY="346.0" mnemonicParsing="false" text="Lowest Loaded Sim" toggleGroup="$RoutingAlgorithm" />
+            <CheckBox fx:id="smppLogerCheckBox" layoutX="176.0" layoutY="382.0" mnemonicParsing="false" text="SMPP" />
+            <CheckBox fx:id="componentLoggerCheckBox" layoutX="274.0" layoutY="382.0" mnemonicParsing="false" text="Component" />
+            <CheckBox fx:id="logicLoggerCheckBox" layoutX="394.0" layoutY="382.0" mnemonicParsing="false" text="Logic" />
+            <CheckBox fx:id="gsmLoggerCheckBox" layoutX="512.0" layoutY="382.0" mnemonicParsing="false" text="GSM" />
+            <CheckBox fx:id="dailedNumberLoggerCheckBox" layoutX="623.0" layoutY="382.0" mnemonicParsing="false" text="Dailed Numbers" />
+            <Button fx:id="saveButton" layoutX="405.0" layoutY="429.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="108.0" text="Save" />
+            <Button fx:id="CancelButton" layoutX="213.0" layoutY="429.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="108.0" text="Cance" />
+            <RadioButton fx:id="callRecordingNORadioButton" layoutX="168.0" layoutY="270.0" mnemonicParsing="false" text="No">
+               <toggleGroup>
+                  <ToggleGroup fx:id="callsRecording" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="callRecordingYesRadioButton" layoutX="238.0" layoutY="270.0" mnemonicParsing="false" text="Yes" toggleGroup="$callsRecording" />
+            <RadioButton fx:id="avoidRobotNORadioButton" layoutX="168.0" layoutY="310.0" mnemonicParsing="false" text="No">
+               <toggleGroup>
+                  <ToggleGroup fx:id="avoidRobotRecaptcha" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="avoidRobotYESRadioButton" layoutX="238.0" layoutY="310.0" mnemonicParsing="false" text="Yes" toggleGroup="$avoidRobotRecaptcha" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
