@@ -74,7 +74,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                             <mainClass>
-                                com.larrykin.callandsmsmanagementsoftwaredevelopment/com.larrykin.appmanager.HelloApplication
+                                com.larrykin.appmanager/com.larrykin.appmanager.MainApplication
                             </mainClass>
                         </manifest>
                     </archive>
@@ -91,7 +91,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.larrykin.callandsmsmanagementsoftwaredevelopment/com.larrykin.appmanager.HelloApplication
+                                com.larrykin.appmanager/com.larrykin.appmanager.MainApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

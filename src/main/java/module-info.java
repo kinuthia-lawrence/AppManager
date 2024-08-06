@@ -1,4 +1,4 @@
-module com.larrykin.callandsmsmanagementsoftwaredevelopment {
+module com.larrykin.appmanager {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -6,4 +6,5 @@ module com.larrykin.callandsmsmanagementsoftwaredevelopment {
 
     opens com.larrykin.appmanager to javafx.fxml;
     exports com.larrykin.appmanager;
+    exports com.larrykin.appmanager.controllers to javafx.fxml;
 }
