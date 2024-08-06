@@ -8,24 +8,24 @@
    <content>
       <TableView prefHeight="608.0" prefWidth="1665.0">
          <columns>
-            <TableColumn prefWidth="69.0" text="IMEI" />
-            <TableColumn minWidth="9.0" prefWidth="101.0" text="Operator name" />
-            <TableColumn minWidth="1.0" prefWidth="95.0" text="Signla Quality" />
-            <TableColumn minWidth="5.0" prefWidth="107.0" text="Call Status" />
-            <TableColumn prefWidth="105.0" text="Dailed Number" />
-            <TableColumn prefWidth="69.0" text="IMEI ACD" />
-            <TableColumn prefWidth="69.0" text="IMEI ASR" />
-            <TableColumn prefWidth="116.0" text="Remaining Minutes" />
-            <TableColumn prefWidth="106.0" text="Remaining Calls" />
-            <TableColumn prefWidth="67.0" text="Reset" />
-            <TableColumn prefWidth="136.0" text="Last Connected Call" />
-            <TableColumn maxWidth="299.0" minWidth="-1.0" prefWidth="101.0" text="Codec" />
-            <TableColumn maxWidth="321.0" minWidth="-1.0" prefWidth="85.0" text="Audio flow" />
-            <TableColumn maxWidth="331.0" minWidth="-1.0" prefWidth="93.0" text="Phone Model" />
-            <TableColumn maxWidth="345.0" minWidth="-1.0" prefWidth="97.0" text="Modem name" />
-            <TableColumn maxWidth="340.0" minWidth="-1.0" prefWidth="84.0" text="audio Port" />
-            <TableColumn maxWidth="337.0" minWidth="-1.0" prefWidth="68.0" text="COM port" />
-            <TableColumn maxWidth="347.0" minWidth="-1.0" prefWidth="96.0" text="Response Time" />
+            <TableColumn fx:id="imeiColumn" prefWidth="69.0" text="IMEI" />
+            <TableColumn fx:id="operatornameColumn" minWidth="9.0" prefWidth="101.0" text="Operator name" />
+            <TableColumn fx:id="signalQualityColumn" minWidth="1.0" prefWidth="95.0" text="Signal Quality" />
+            <TableColumn fx:id="callStatusColumn" minWidth="5.0" prefWidth="107.0" text="Call Status" />
+            <TableColumn fx:id="dailedNumbersColumn" prefWidth="105.0" text="Dailed Number" />
+            <TableColumn fx:id="imeiACDColumn" prefWidth="69.0" text="IMEI ACD" />
+            <TableColumn fx:id="imeiAsrColumn" prefWidth="69.0" text="IMEI ASR" />
+            <TableColumn fx:id="remainingMinutesColumn" prefWidth="116.0" text="Remaining Minutes" />
+            <TableColumn fx:id="remainingCallsColumn" prefWidth="106.0" text="Remaining Calls" />
+            <TableColumn fx:id="resetColumn" prefWidth="67.0" text="Reset" />
+            <TableColumn fx:id="lastConnectedCallColumn" prefWidth="136.0" text="Last Connected Call" />
+            <TableColumn fx:id="codecColumn" maxWidth="299.0" minWidth="-1.0" prefWidth="101.0" text="Codec" />
+            <TableColumn fx:id="audioFlowColumn" maxWidth="321.0" minWidth="-1.0" prefWidth="85.0" text="Audio flow" />
+            <TableColumn fx:id="phoneModelColumn" maxWidth="331.0" minWidth="-1.0" prefWidth="93.0" text="Phone Model" />
+            <TableColumn fx:id="modemNameColumn" maxWidth="345.0" minWidth="-1.0" prefWidth="97.0" text="Modem name" />
+            <TableColumn fx:id="audiPortColumn" maxWidth="340.0" minWidth="-1.0" prefWidth="84.0" text="audio Port" />
+            <TableColumn fx:id="comPortColumn" maxWidth="337.0" minWidth="-1.0" prefWidth="68.0" text="COM port" />
+            <TableColumn fx:id="responseTimeColumn" maxWidth="347.0" minWidth="-1.0" prefWidth="96.0" text="Response Time" />
          </columns>
       </TableView>
    </content>

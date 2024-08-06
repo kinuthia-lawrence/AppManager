@@ -47,6 +47,9 @@ public class DashboardController {
     private Button helpButton;
 
     @FXML
+    private Button homeButton;
+
+    @FXML
     private ImageView iconASR;
 
     @FXML
@@ -124,11 +127,13 @@ public class DashboardController {
     Model.getInstance().getViewFactory().getDashboardSelectedItem().addListener((observable ,oldVal, newVal) ->{
         switch (newVal){
             case SETTINGS -> borderPane.setCenter(Model.getInstance().getViewFactory().getSettingsAnchorPane());
+            case TABLEVIEW -> borderPane.setCenter(Model.getInstance().getViewFactory().getTableviewScrollPane());
         }
     });
 
     }
 
+    //? Adding icons programmatically
     private void loadImages() {
         Image callIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/call.png")));
         iconTotalCalls.setImage(callIcon);
@@ -144,11 +149,20 @@ public class DashboardController {
         IconAcd.setImage(acdIcon);
     }
 
+    //? Adding listeners to the buttons
     private void addListeners() {
+        homeButton.setOnAction(e ->serHome());
         settingsButton.setOnAction(e -> setSettings());
     }
+
+
+
+    //?listener for the buttons
     public void setSettings() {
         Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.SETTINGS);
+    }
+    private void serHome() {
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.TABLEVIEW);
     }
 
 }
