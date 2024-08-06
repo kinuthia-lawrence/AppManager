@@ -14,12 +14,13 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" stylesheets="@../styles/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.larrykin.appmanager.controllers.DashboardController">
+<BorderPane fx:id="borderPane" prefWidth="1290.0" stylesheets="@../styles/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.larrykin.appmanager.controllers.DashboardController">
    <top>
       <AnchorPane BorderPane.alignment="TOP_CENTER">
          <children>
             <GridPane alignment="CENTER" hgap="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -40,74 +41,79 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="settingsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Settings" textAlignment="CENTER">
+                  <Button fx:id="settingsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Settings" textAlignment="CENTER" GridPane.columnIndex="1">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="dailingPlanButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Dailing plan" textAlignment="CENTER" GridPane.columnIndex="1">
+                  <Button fx:id="dailingPlanButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Dailing plan" textAlignment="CENTER" GridPane.columnIndex="2">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="blockGuardButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Block Guard" textAlignment="CENTER" GridPane.columnIndex="2">
+                  <Button fx:id="blockGuardButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Block Guard" textAlignment="CENTER" GridPane.columnIndex="3">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="CodecButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Codec" textAlignment="CENTER" GridPane.columnIndex="3">
+                  <Button fx:id="CodecButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Codec" textAlignment="CENTER" GridPane.columnIndex="4">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="ussdApiButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="USSD API " textAlignment="CENTER" GridPane.columnIndex="4">
+                  <Button fx:id="ussdApiButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="USSD API " textAlignment="CENTER" GridPane.columnIndex="5">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="ussdButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="USSD" textAlignment="CENTER" GridPane.columnIndex="5">
+                  <Button fx:id="ussdButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="USSD" textAlignment="CENTER" GridPane.columnIndex="6">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="smsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="SMS" textAlignment="CENTER" GridPane.columnIndex="6">
+                  <Button fx:id="smsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="SMS" textAlignment="CENTER" GridPane.columnIndex="7">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="manageUseButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Manage use" textAlignment="CENTER" GridPane.columnIndex="7">
+                  <Button fx:id="manageUseButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Manage use" textAlignment="CENTER" GridPane.columnIndex="8">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="BlackWhitelistButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Black/white list" textAlignment="CENTER" GridPane.columnIndex="8">
+                  <Button fx:id="BlackWhitelistButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Black/white list" textAlignment="CENTER" GridPane.columnIndex="9">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="recordCallsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Recorded calls" textAlignment="CENTER" GridPane.columnIndex="9">
+                  <Button fx:id="recordCallsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Recorded calls" textAlignment="CENTER" GridPane.columnIndex="10">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="viewModelButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="75.0" text="view model" GridPane.columnIndex="11">
+                  <Button fx:id="viewModelButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="68.0" text="view model" GridPane.columnIndex="12">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="logsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="67.0" text="logs" textAlignment="CENTER" GridPane.columnIndex="12">
+                  <Button fx:id="logsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="61.0" text="logs" textAlignment="CENTER" GridPane.columnIndex="13">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="helpButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="help" textAlignment="CENTER" GridPane.columnIndex="13">
+                  <Button fx:id="helpButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="help" textAlignment="CENTER" GridPane.columnIndex="14">
                      <font>
                         <Font name="System Italic" size="8.0" />
                      </font>
                   </Button>
-                  <Button fx:id="onlineMonitorBUtton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="68.0" text="Online Monitoring" textAlignment="CENTER" GridPane.columnIndex="10" GridPane.columnSpan="5">
+                  <Button fx:id="onlineMonitorBUtton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="82.0" text="Online Monitoring" textAlignment="CENTER" GridPane.columnIndex="11" GridPane.columnSpan="5">
                      <font>
                         <Font name="System Italic" size="8.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="homeButton" mnemonicParsing="false" prefHeight="21.0" prefWidth="83.0" text="Home">
+                     <font>
+                        <Font name="System Italic" size="10.0" />
                      </font>
                   </Button>
                </children>

@@ -5,8 +5,11 @@ import com.larrykin.appmanager.models.Model;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+
+import java.util.Objects;
 
 public class DashboardController {
 
@@ -127,6 +130,18 @@ public class DashboardController {
     }
 
     private void loadImages() {
+        Image callIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/call.png")));
+        iconTotalCalls.setImage(callIcon);
+        Image asrIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/asr.png")));
+        iconASR.setImage(asrIcon);
+        Image lostCallsIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/missedCalls.png")));
+        iconLostCalls.setImage(lostCallsIcon);
+        Image smsIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/sms.png")));
+        iconSms.setImage(smsIcon);
+        Image utilizationIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/utilization.png")));
+        iconUtilization.setImage(utilizationIcon);
+        Image acdIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/acd.png")));
+        IconAcd.setImage(acdIcon);
     }
 
     private void addListeners() {
