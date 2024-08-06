@@ -4,7 +4,7 @@ module com.larrykin.appmanager {
 
     requires org.controlsfx.controls;
 
-    opens com.larrykin.appmanager to javafx.fxml;
+    opens com.larrykin.appmanager.controllers to javafx.fxml;
     exports com.larrykin.appmanager;
     exports com.larrykin.appmanager.controllers to javafx.fxml;
 }

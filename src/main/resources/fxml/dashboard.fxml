@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@." xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" stylesheets="@../styles/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.larrykin.appmanager.controllers.DashboardController">
    <top>
       <AnchorPane BorderPane.alignment="TOP_CENTER">
          <children>
@@ -330,4 +330,7 @@
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" />
    </padding>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
