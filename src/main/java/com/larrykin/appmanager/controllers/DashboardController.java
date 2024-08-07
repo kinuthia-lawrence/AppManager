@@ -128,6 +128,7 @@ public class DashboardController {
         switch (newVal){
             case SETTINGS -> borderPane.setCenter(Model.getInstance().getViewFactory().getSettingsScrollPane());
             case TABLEVIEW -> borderPane.setCenter(Model.getInstance().getViewFactory().getTableviewScrollPane());
+            case SMS -> borderPane.setCenter(Model.getInstance().getViewFactory().getSmsScrollPane());
         }
     });
 
@@ -151,8 +152,9 @@ public class DashboardController {
 
     //? Adding listeners to the buttons
     private void addListeners() {
-        homeButton.setOnAction(e ->serHome());
+        homeButton.setOnAction(e ->setHome());
         settingsButton.setOnAction(e -> setSettings());
+        smsButton.setOnAction(e -> setSms());
     }
 
 
@@ -161,8 +163,11 @@ public class DashboardController {
     public void setSettings() {
         Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.SETTINGS);
     }
-    private void serHome() {
+    private void setHome() {
         Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.TABLEVIEW);
+    }
+    private void setSms() {
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.SMS);
     }
 
 }

@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 public class ViewFactory {
     //? Initializing the ObjectProperty and the panes
     private final ObjectProperty dashboardSelectedItem;
-    private ScrollPane tableviewScrollPane , settingsScrollPane;
+    private ScrollPane tableviewScrollPane , settingsScrollPane, smsScrollPane;
 
 
     //?constructor
@@ -46,6 +46,17 @@ public class ViewFactory {
             }
         }
         return settingsScrollPane;
+    }
+    public ScrollPane getSmsScrollPane() {
+        if (smsScrollPane == null) {
+            try {
+                smsScrollPane = new FXMLLoader(getClass().getResource("/fxml/sms.fxml")).load();
+            } catch (Exception e) {
+                System.out.println("Error loading smsAnchorPane"+e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        return smsScrollPane;
     }
 
 

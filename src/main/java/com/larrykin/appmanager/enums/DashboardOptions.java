@@ -5,5 +5,6 @@ public enum DashboardOptions {
     SETTINGS,
     DAILING_PLAN,
     BLOCK_GUARD,
-    CODEC
+    CODEC,
+    SMS,
 }
