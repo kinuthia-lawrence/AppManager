@@ -128,7 +128,10 @@ public class DashboardController {
         switch (newVal){
             case SETTINGS -> borderPane.setCenter(Model.getInstance().getViewFactory().getSettingsScrollPane());
             case TABLEVIEW -> borderPane.setCenter(Model.getInstance().getViewFactory().getTableviewScrollPane());
-            case SMS -> borderPane.setCenter(Model.getInstance().getViewFactory().getSmsScrollPane());
+            case SMS -> {
+                borderPane.setCenter(Model.getInstance().getViewFactory().getSmsScrollPane());
+                borderPane.setRight(Model.getInstance().getViewFactory().getSendSMSScrollPane());
+            }
         }
     });
 

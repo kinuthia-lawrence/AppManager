@@ -9,7 +9,7 @@ import javafx.scene.control.ScrollPane;
 public class ViewFactory {
     //? Initializing the ObjectProperty and the panes
     private final ObjectProperty dashboardSelectedItem;
-    private ScrollPane tableviewScrollPane , settingsScrollPane, smsScrollPane;
+    private ScrollPane tableviewScrollPane , settingsScrollPane, smsScrollPane, sendSMSScrollPane;
 
 
     //?constructor
@@ -56,6 +56,17 @@ public class ViewFactory {
             }
         }
         return smsScrollPane;
+    }
+    public ScrollPane getSendSMSScrollPane() {
+        if (sendSMSScrollPane == null) {
+            try {
+                sendSMSScrollPane = new FXMLLoader(getClass().getResource("/fxml/sendSMS.fxml")).load();
+            } catch (Exception e) {
+                System.out.println("Error loading sendSMSAnchorPane"+e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        return sendSMSScrollPane;
     }
 
 
