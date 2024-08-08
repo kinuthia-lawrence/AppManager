@@ -127,11 +127,20 @@ public class DashboardController {
     Model.getInstance().getViewFactory().getDashboardSelectedItem().addListener((observable ,oldVal, newVal) ->{
         switch (newVal){
             case SETTINGS -> borderPane.setCenter(Model.getInstance().getViewFactory().getSettingsScrollPane());
-            case TABLEVIEW -> borderPane.setCenter(Model.getInstance().getViewFactory().getTableviewScrollPane());
+            case HOME -> borderPane.setCenter(Model.getInstance().getViewFactory().getTableviewScrollPane());
             case SMS -> {
-                borderPane.setCenter(Model.getInstance().getViewFactory().getSmsScrollPane());
-                borderPane.setRight(Model.getInstance().getViewFactory().getSendSMSScrollPane());
+                BorderPane innerBorderPane = new BorderPane();
+                innerBorderPane.setCenter(Model.getInstance().getViewFactory().getSmsScrollPane());
+                innerBorderPane.setRight(Model.getInstance().getViewFactory().getSendSMSScrollPane());
+                borderPane.setCenter(innerBorderPane);
             }
+            case DAILING_PLAN -> borderPane.setCenter(Model.getInstance().getViewFactory().getDailingPlanScrollPane());
+            case BLOCK_GUARD -> borderPane.setCenter(Model.getInstance().getViewFactory().getBlockGuardScrollPane());
+            case CODEC -> borderPane.setCenter(Model.getInstance().getViewFactory().getCodecScrollPane());
+            case USSD -> borderPane.setCenter(Model.getInstance().getViewFactory().getUssdScrollPane());
+            case USSD_API -> borderPane.setCenter(Model.getInstance().getViewFactory().getUssdApiScrollPane());
+            case MANAGE_USAGE -> borderPane.setCenter(Model.getInstance().getViewFactory().getManageUsageScrollPane());
+            case BLACK_AND_WHITE_LIST -> borderPane.setCenter(Model.getInstance().getViewFactory().getBlackAndWhiteListScrollPane());
         }
     });
 
@@ -158,6 +167,13 @@ public class DashboardController {
         homeButton.setOnAction(e ->setHome());
         settingsButton.setOnAction(e -> setSettings());
         smsButton.setOnAction(e -> setSms());
+        dailingPlanButton.setOnAction(e ->setDailingPlan());
+        blockGuardButton.setOnAction(e -> setBlockGuard());
+        CodecButton.setOnAction(e -> setCodec());
+        ussdButton.setOnAction(e -> setUssd());
+        ussdApiButton.setOnAction(e -> setUssdApi());
+        manageUseButton.setOnAction(e -> setManageUsage());
+        BlackWhitelistButton.setOnAction(e -> setBlackAndWhiteList());
     }
 
 
@@ -167,10 +183,31 @@ public class DashboardController {
         Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.SETTINGS);
     }
     private void setHome() {
-        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.TABLEVIEW);
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.HOME);
     }
     private void setSms() {
         Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.SMS);
+    }
+    private void setDailingPlan() {
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.DAILING_PLAN);
+    }
+    private void setBlockGuard() {
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.BLOCK_GUARD);
+    }
+    private void setCodec() {
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.CODEC);
+    }
+    private void setUssd() {
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.USSD);
+    }
+    private void setUssdApi() {
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.USSD_API);
+    }
+    private void setManageUsage() {
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.MANAGE_USAGE);
+    }
+    private void setBlackAndWhiteList() {
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.BLACK_AND_WHITE_LIST);
     }
 
 }

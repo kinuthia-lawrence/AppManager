@@ -1,10 +1,14 @@
 package com.larrykin.appmanager.enums;
 
 public enum DashboardOptions {
-    TABLEVIEW,
+    HOME,
     SETTINGS,
     DAILING_PLAN,
     BLOCK_GUARD,
     CODEC,
     SMS,
+    USSD_API,
+    USSD,
+    MANAGE_USAGE,
+    BLACK_AND_WHITE_LIST,
 }
