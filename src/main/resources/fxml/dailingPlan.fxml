@@ -26,8 +26,8 @@
                   <AnchorPane fx:id="checkboxAnchorPane" prefHeight="135.0" prefWidth="175.0" />
                </content>
             </ScrollPane>
-            <Hyperlink fx:id="selectAllHyperlink" layoutX="33.0" layoutY="271.0" text="Select All" textFill="#141414" underline="true" />
-            <Hyperlink fx:id="DeselectAllHyperlink" layoutX="127.0" layoutY="271.0" text="Deselect All" textFill="#141414" underline="true" />
+            <Hyperlink fx:id="selectAllHyperlink" layoutX="33.0" layoutY="271.0" text="Select All" textFill="#141414" underline="true" focusTraversable="false"/>
+            <Hyperlink fx:id="DeselectAllHyperlink" layoutX="127.0" layoutY="271.0" text="Deselect All" textFill="#141414" underline="true" focusTraversable="false"/>
             <Button fx:id="refreshButton" layoutX="141.0" layoutY="93.0" mnemonicParsing="false">
                <graphic>
                   <ImageView fx:id="iconrefresh" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />

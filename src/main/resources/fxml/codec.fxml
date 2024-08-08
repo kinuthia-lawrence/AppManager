@@ -1,46 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.larrykin.appmanager.controllers.SendSMSController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.larrykin.appmanager.controllers.CodecController">
    <content>
       <AnchorPane prefHeight="500.0" prefWidth="531.0">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" prefHeight="41.0" prefWidth="151.0" text="  Send SMS" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label layoutX="14.0" layoutY="14.0" text="Manage Codecs" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font name="System Bold Italic" size="24.0" />
                </font></Label>
-            <Label layoutX="28.0" layoutY="116.0" text="Select phone(s)" />
-            <ScrollPane layoutX="5.0" layoutY="144.0" prefHeight="291.0" prefWidth="191.0">
+            <ScrollPane layoutX="137.0" layoutY="105.0" prefHeight="291.0" prefWidth="240.0">
                <content>
-                  <AnchorPane fx:id="checkboxAnchorPane" prefHeight="292.0" prefWidth="175.0" />
+                  <VBox prefHeight="297.0" prefWidth="217.0" spacing="10.0">
+                     <children>
+                        <CheckBox fx:id="g729CheckBox" mnemonicParsing="false" text="G729" />
+                        <CheckBox fx:id="pcmuCheckBox" mnemonicParsing="false" text="PCMU" />
+                        <CheckBox fx:id="gsmCheckBox" mnemonicParsing="false" text="GSM" />
+                        <CheckBox fx:id="g723CheckBox" mnemonicParsing="false" text="G723" />
+                        <CheckBox fx:id="pcmaCheckBox" mnemonicParsing="false" text="PCMA" />
+                        <CheckBox fx:id="g722CheckBox" mnemonicParsing="false" text="G722" />
+                        <CheckBox fx:id="l16_44_2CheckBox" mnemonicParsing="false" text="L16_44_2" />
+                        <CheckBox fx:id="l16_44_1CheckBox" mnemonicParsing="false" text="L16_44_1" />
+                        <CheckBox fx:id="g728CheckBox" mnemonicParsing="false" text="G728" />
+                        <CheckBox fx:id="h263CheckBox" mnemonicParsing="false" text="H263" />
+                        <CheckBox fx:id="mpeg4CheckBox" mnemonicParsing="false" text="MPEG4" />
+                        <CheckBox fx:id="speex_NarrowbandCheckBox" mnemonicParsing="false" text="Speex_Narrowband" />
+                        <CheckBox fx:id="ilbcCheckBox" mnemonicParsing="false" text="iLBC" />
+                        <CheckBox fx:id="h264CheckBox" mnemonicParsing="false" text="H264" />
+                        <CheckBox fx:id="speex_widebandCheckBox" mnemonicParsing="false" text="Speex_Wideband" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
                </content>
             </ScrollPane>
-            <Hyperlink fx:id="selectAllHyperlink" layoutX="26.0" layoutY="448.0" text="Select All" textFill="#141414" underline="true" />
-            <Hyperlink fx:id="DeselectAllHyperlink" layoutX="114.0" layoutY="448.0" text="Deselect All" textFill="#141414" underline="true" />
-            <Button fx:id="refreshButton" layoutX="153.0" layoutY="108.0" mnemonicParsing="false">
-               <graphic>
-                  <ImageView fx:id="iconrefresh" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Label layoutX="210.0" layoutY="136.0" text="To Number" />
-            <Label layoutX="210.0" layoutY="165.0" text="Message" />
-            <TextField fx:id="toNumberTextfield" layoutX="281.0" layoutY="132.0" prefHeight="25.0" prefWidth="242.0" />
-            <TextArea fx:id="messageTextField" layoutX="281.0" layoutY="165.0" prefHeight="200.0" prefWidth="244.0" wrapText="true" />
-            <CheckBox fx:id="method1CheckBox" layoutX="283.0" layoutY="399.0" mnemonicParsing="false" text="Method 1" />
-            <CheckBox fx:id="method2CheckBox" layoutX="283.0" layoutY="432.0" mnemonicParsing="false" text="Method 2" />
-            <CheckBox fx:id="method3CheckBox" layoutX="283.0" layoutY="463.0" mnemonicParsing="false" text="Method 3" />
-            <Button fx:id="sendButton" layoutX="413.0" layoutY="424.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="78.0" text="Send" />
-            <Label layoutX="279.0" layoutY="365.0" prefHeight="17.0" prefWidth="228.0" text="English Language Only" />
+            <Button fx:id="moveUpButton" layoutX="137.0" layoutY="66.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Move Up" />
+            <Button fx:id="moveDownButton" layoutX="276.0" layoutY="66.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Move Down" />
+            <Button fx:id="cancelButton" layoutX="137.0" layoutY="452.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Cancel" />
+            <Button fx:id="saveButton" layoutX="276.0" layoutY="452.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Save" />
+            <Hyperlink fx:id="selectAllHyperlink" focusTraversable="false" layoutX="146.0" layoutY="407.0" text="Select All" textFill="#171717" underline="true" />
+            <Hyperlink fx:id="deselectAllHyperlink" focusTraversable="false" layoutX="283.0" layoutY="407.0" text="Deselect All" textFill="#171717" underline="true" />
          </children>
       </AnchorPane>
    </content>
