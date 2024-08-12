@@ -5,11 +5,13 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 
 public class ViewFactory {
     //? Initializing the ObjectProperty and the panes
     private final ObjectProperty dashboardSelectedItem;
     private ScrollPane tableviewScrollPane , settingsScrollPane, smsScrollPane, sendSMSScrollPane, dailingPlanScrollPane, blockGuardScrollPane, codecScrollPane, ussdApiScrollPane, ussdScrollPane, manageUsageScrollPane, blackAndWhiteListScrollPane;
+    private AnchorPane smppSettingsPane, registerSIPPane;
 
 
     //?constructor
@@ -145,4 +147,27 @@ public class ViewFactory {
         }
         return blackAndWhiteListScrollPane;
     }
+    public AnchorPane getSmppSettingsPane(){
+        if(smppSettingsPane == null){
+            try{
+                smppSettingsPane = new FXMLLoader(getClass().getResource("/fxml/smppServerSettings.fxml")).load();
+            }catch (Exception e){
+                System.out.println("Error loading smppServerSettings" + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        return smppSettingsPane;
+    }
+    public AnchorPane getRegisterSIPPane(){
+        if(registerSIPPane == null){
+            try{
+                registerSIPPane = new FXMLLoader(getClass().getResource("/fxml/registerSIP.fxml")).load();
+            }catch (Exception e){
+                System.out.println("Error loading registerSIPPane" + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        return registerSIPPane;
+    }
+
 }

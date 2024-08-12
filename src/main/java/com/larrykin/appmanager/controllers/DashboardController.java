@@ -95,7 +95,7 @@ public class DashboardController {
     private Label sipServerStatusLabel;
 
     @FXML
-    private Button smppServerSettings;
+    private Button smppServerSettingsButton;
 
     @FXML
     private Button smsButton;
@@ -141,6 +141,8 @@ public class DashboardController {
             case USSD_API -> borderPane.setCenter(Model.getInstance().getViewFactory().getUssdApiScrollPane());
             case MANAGE_USAGE -> borderPane.setCenter(Model.getInstance().getViewFactory().getManageUsageScrollPane());
             case BLACK_AND_WHITE_LIST -> borderPane.setCenter(Model.getInstance().getViewFactory().getBlackAndWhiteListScrollPane());
+            case SMPP_SETTINGS -> borderPane.setCenter(Model.getInstance().getViewFactory().getSmppSettingsPane());
+            case REGISTER_SIP -> borderPane.setCenter(Model.getInstance().getViewFactory().getRegisterSIPPane());
         }
     });
 
@@ -174,6 +176,8 @@ public class DashboardController {
         ussdApiButton.setOnAction(e -> setUssdApi());
         manageUseButton.setOnAction(e -> setManageUsage());
         BlackWhitelistButton.setOnAction(e -> setBlackAndWhiteList());
+        registerToSipServerButton.setOnAction(e -> setRegisterSIP());
+        smppServerSettingsButton.setOnAction(e->setSmppSettings());
     }
 
 
@@ -208,6 +212,12 @@ public class DashboardController {
     }
     private void setBlackAndWhiteList() {
         Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.BLACK_AND_WHITE_LIST);
+    }
+    private void setSmppSettings(){
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.SMPP_SETTINGS);
+    }
+    private void setRegisterSIP(){
+        Model.getInstance().getViewFactory().getDashboardSelectedItem().set(DashboardOptions.REGISTER_SIP);
     }
 
 }

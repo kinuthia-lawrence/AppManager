@@ -11,4 +11,6 @@ public enum DashboardOptions {
     USSD,
     MANAGE_USAGE,
     BLACK_AND_WHITE_LIST,
+    REGISTER_SIP,
+    SMPP_SETTINGS
 }

@@ -139,7 +139,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="smppServerSettins" mnemonicParsing="false" prefWidth="160.0" text="SMPP Server Settings" textFill="#32bfb1" />
+                        <Button fx:id="smppServerSettingsButton" mnemonicParsing="false" prefWidth="160.0" text="SMPP Server Settings" textFill="#32bfb1" />
                      </children>
                   </HBox>
                   <TilePane alignment="CENTER_LEFT" hgap="4.0" prefColumns="2" prefHeight="30.0" prefRows="1" GridPane.columnIndex="2">
