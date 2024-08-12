@@ -1,11 +1,13 @@
 package com.larrykin.appmanager.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-public class registerSIPController {
+public class RegisterSIPController {
 
     @FXML
     private TextField authUsernameTextField;
@@ -38,6 +40,17 @@ public class registerSIPController {
     private TextField sipUsernameTextField;
 
     @FXML
-    private ComboBox<?> transportComboBox;
+    private ComboBox<String> transportComboBox;
+    @FXML
+    public void initialize(){
+        loadComboBox();
+    }
+
+    private void loadComboBox() {
+        ObservableList<String> transportProtocal = FXCollections.observableArrayList(
+            "UDP","TCP","TLS"
+        );
+        transportComboBox.setItems(transportProtocal);
+    }
 
 }
