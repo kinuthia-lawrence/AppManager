@@ -2,25 +2,21 @@ package com.larrykin.appmanager.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DatabaseConn {
-    public Connection databaseLink;
-
     public Connection getConnection() {
-        String databaseName = "app_manager";
-        String databaseUser = "root";
-        String databasePassword = "";
-        String url = "jdbc:mysql://localhost/" + databaseName;
-
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            databaseLink = DriverManager.getConnection(url, databaseUser, databasePassword);
-
-        }catch(Exception e){
-            e.printStackTrace();
-            e.getCause();
+        Connection connection = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-
-        return databaseLink;
+        return connection;
     }
 }
+
+
+
+
