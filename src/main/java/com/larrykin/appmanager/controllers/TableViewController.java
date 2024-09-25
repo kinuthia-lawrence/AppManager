@@ -89,6 +89,9 @@ public class TableViewController {
         ObservableList<Details> detailsList = FXCollections.observableArrayList();
         detailsList.addAll(getDetailsFromDatabase());
 
+        // Clear existing items and columns
+        detailsTable.getItems().clear();
+
         // Bind the properties to the respective columns
         imeiColumn.setCellValueFactory(cellData -> cellData.getValue().imeiProperty());
         operatornameColumn.setCellValueFactory(cellData -> cellData.getValue().operatorNameProperty());
@@ -98,6 +101,7 @@ public class TableViewController {
         imeiACDColumn.setCellValueFactory(cellData -> cellData.getValue().imeiAcdProperty());
         imeiAsrColumn.setCellValueFactory(cellData -> cellData.getValue().imeiAsrProperty());
         remainingMinutesColumn.setCellValueFactory(cellData -> cellData.getValue().remainingMinutesProperty());
+        remainingCallsColumn.setCellValueFactory(cellData ->cellData.getValue().remainingMinutesProperty());
         lastConnectedCallColumn.setCellValueFactory(cellData -> cellData.getValue().lastConnectedProperty());
         codecColumn.setCellValueFactory(cellData -> cellData.getValue().codecProperty());
         audioFlowColumn.setCellValueFactory(cellData -> cellData.getValue().audioFlowProperty());
