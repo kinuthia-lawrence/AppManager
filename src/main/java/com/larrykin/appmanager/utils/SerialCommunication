@@ -1,0 +1,33 @@
+package com.larrykin.appmanager.utils;
+import jssc.SerialPort;
+import jssc.SerialPortException;
+
+public class SerialCommunication {
+    private final SerialPort serialPort;
+
+    public SerialCommunication(String portName) throws SerialPortException {
+        // Initialize the serial port (e.g., "COM3")
+        serialPort = new SerialPort(portName);
+        serialPort.openPort(); // Open the port
+        serialPort.setParams(SerialPort.BAUDRATE_115200,
+                SerialPort.DATABITS_8,
+                SerialPort.STOPBITS_1,
+                SerialPort.PARITY_NONE);
+    }
+
+    public void sendMessage(String message) throws SerialPortException {
+        // Send a message to the serial port (to be interpreted by the GSM modem)
+        serialPort.writeString(message);
+    }
+
+    public String readResponse() throws SerialPortException {
+        // Read the response from the modem
+        return serialPort.readString();
+    }
+
+    public void closePort() throws SerialPortException {
+        if (serialPort != null && serialPort.isOpened()) {
+            serialPort.closePort(); // Close the port when done
+        }
+    }
+}
