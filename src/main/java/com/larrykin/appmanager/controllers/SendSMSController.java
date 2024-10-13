@@ -1,25 +1,28 @@
 package com.larrykin.appmanager.controllers;
 
+import com.fazecast.jSerialComm.SerialPort;
 import com.larrykin.appmanager.utils.DatabaseConn;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class SendSMSController {
 
     @FXML
     private Hyperlink DeselectAllHyperlink;
+
+    @FXML
+    private Label EnglishLabel;
 
     @FXML
     private AnchorPane checkboxAnchorPane;
@@ -121,5 +124,89 @@ public class SendSMSController {
         Image refreshImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/refresh.png")));
         iconrefresh.setImage(refreshImage);
     }
+    private void sendSMS() {
+        SerialPort port = SerialPort.getCommPort("COM9");
+        port.setComPortParameters(9600, 8, 1, 0); // Baud rate, data bits, stop bits, parity
+        port.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 1000, 1000);
+
+        if (port.openPort()) {
+            EnglishLabel.setText("Port opened successfully!\n");
+            System.out.println("Port opened successfully!");  // Log success to the console
+
+            try {
+                OutputStream outputStream = port.getOutputStream();
+                InputStream inputStream = port.getInputStream();
+
+                // Set modem to SMS text mode
+                sendATCommand(outputStream, "AT+CMGF=1\r");
+                String response = readResponse(inputStream);
+                EnglishLabel.setText("Modem Response (Set to Text Mode):\n" + response);
+                System.out.println("Modem Response (Set to Text Mode):\n" + response);
+
+                // Get phone number and message text from JTextField and JTextArea
+                String phoneNumber = toNumberTextfield.getText();
+                String messageText = messageTextField.getText();
+
+                // Send AT command to send an SMS
+                sendATCommand(outputStream, "AT+CMGS=\"" + phoneNumber + "\"\r");
+
+                // Wait for modem to prompt for the message (i.e., '>')
+                response = readResponse(inputStream);
+                if (response.contains(">")) {
+                    // Send the message text followed by Ctrl+Z (ASCII code 26)
+                    outputStream.write((messageText + "\u001A").getBytes());
+                    outputStream.flush();
+                    EnglishLabel.setText("Sending message...");
+                    System.out.println("Sending message...");
+
+                    // Read the final response from the modem
+                    response = readResponse(inputStream);
+                    EnglishLabel.setText("Modem Response:\n" + response);
+                    System.out.println("Modem Response:\n" + response);
+
+                    // Update JLabel with the status
+                    if (response.contains("OK")) {
+                        EnglishLabel.setText("SMS sent successfully to " + phoneNumber);
+                        System.out.println("SMS sent successfully to " + phoneNumber);
+                    } else {
+                        EnglishLabel.setText("Failed to send SMS to " + phoneNumber);
+                        System.out.println("Failed to send SMS to " + phoneNumber);
+                    }
+                }
+
+                // Close the port after operations
+                port.closePort();
+                EnglishLabel.setText("Port closed.");
+                System.out.println("Port closed.");
+            } catch (Exception e) {
+                // Log the error to System.out and update the UI with the error message
+                System.out.println("Error: " + e.getMessage());
+                e.printStackTrace();  // Print the full stack trace to the console
+                EnglishLabel.setText("Error: " + e.getMessage());
+            }
+        } else {
+            // Log failure to open the port and update the UI
+            EnglishLabel.setText("Failed to open the port.");
+            System.out.println("Failed to open the port.");
+        }
+    }
+    private void sendATCommand(OutputStream outputStream, String command) throws Exception {
+        outputStream.write(command.getBytes());
+        outputStream.flush();
+        Thread.sleep(500);  // Short delay to allow modem to process the command
+    }
+
+    // Function to read the modem's response
+    private String readResponse(InputStream inputStream) throws Exception {
+        Scanner scanner = new Scanner(inputStream);
+        StringBuilder response = new StringBuilder();
+
+        // Read all available data from the input stream
+        while (scanner.hasNextLine()) {
+            response.append(scanner.nextLine()).append("\n");
+        }
+        return response.toString().trim();  // Trim extra whitespace
+    }
+
 
 }
