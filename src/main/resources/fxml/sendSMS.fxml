@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.larrykin.appmanager.controllers.SendSMSController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.larrykin.appmanager.controllers.SendSMSController">
    <content>
       <AnchorPane prefHeight="500.0" prefWidth="531.0">
          <children>
@@ -25,8 +25,8 @@
                   <AnchorPane fx:id="checkboxAnchorPane" prefHeight="292.0" prefWidth="175.0" />
                </content>
             </ScrollPane>
-            <Hyperlink fx:id="selectAllHyperlink" layoutX="26.0" layoutY="448.0" text="Select All" textFill="#141414" underline="true" focusTraversable="false"/>
-            <Hyperlink fx:id="DeselectAllHyperlink" layoutX="114.0" layoutY="448.0" text="Deselect All" textFill="#141414" underline="true" focusTraversable="false" />
+            <Hyperlink fx:id="selectAllHyperlink" focusTraversable="false" layoutX="26.0" layoutY="448.0" text="Select All" textFill="#141414" underline="true" />
+            <Hyperlink fx:id="DeselectAllHyperlink" focusTraversable="false" layoutX="114.0" layoutY="448.0" text="Deselect All" textFill="#141414" underline="true" />
             <Button fx:id="refreshButton" layoutX="153.0" layoutY="108.0" mnemonicParsing="false">
                <graphic>
                   <ImageView fx:id="iconrefresh" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
@@ -40,7 +40,7 @@
             <CheckBox fx:id="method2CheckBox" layoutX="283.0" layoutY="432.0" mnemonicParsing="false" text="Method 2" />
             <CheckBox fx:id="method3CheckBox" layoutX="283.0" layoutY="463.0" mnemonicParsing="false" text="Method 3" />
             <Button fx:id="sendButton" layoutX="413.0" layoutY="424.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="78.0" text="Send" />
-            <Label layoutX="279.0" layoutY="365.0" prefHeight="17.0" prefWidth="228.0" text="English Language Only" />
+            <Label fx:id="EnglishLabel" layoutX="279.0" layoutY="365.0" prefHeight="17.0" prefWidth="228.0" text="English Language Only" />
          </children>
       </AnchorPane>
    </content>
