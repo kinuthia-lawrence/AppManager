@@ -91,6 +91,10 @@ public class SendSMSController {
                 }
             });
         });
+
+        sendButton.setOnAction(event -> {
+            sendSMS();
+        });
     }
 
     //? Add IMEI Checkboxes
@@ -125,7 +129,7 @@ public class SendSMSController {
         iconrefresh.setImage(refreshImage);
     }
     private void sendSMS() {
-        SerialPort port = SerialPort.getCommPort("COM9");
+        SerialPort port = SerialPort.getCommPort("COM7");
         port.setComPortParameters(9600, 8, 1, 0); // Baud rate, data bits, stop bits, parity
         port.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 1000, 1000);
 
