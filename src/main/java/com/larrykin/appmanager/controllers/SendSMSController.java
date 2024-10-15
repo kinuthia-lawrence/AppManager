@@ -1,6 +1,7 @@
 package com.larrykin.appmanager.controllers;
 
 import com.fazecast.jSerialComm.SerialPort;
+import com.larrykin.appmanager.utils.AdbConnector;
 import com.larrykin.appmanager.utils.DatabaseConn;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -12,9 +13,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class SendSMSController {
 
@@ -100,15 +101,31 @@ public class SendSMSController {
     //? Add IMEI Checkboxes
     private void addImeiCheckboxes() {
         try {
+            // Create a list to hold all IMEIs
+            List<String> allImeis = new ArrayList<>();
+
+            // Fetch IMEIs from the database
             String query = "SELECT imei FROM details";
             Connection connection = databaseConn.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
-            double layoutY = 10.0; // Initial Y position for the first checkbox
-
             while (resultSet.next()) {
                 String imei = resultSet.getString("imei");
+                allImeis.add(imei.trim()); // Add trimmed IMEI to the list
+            }
+            connection.close();
+
+            // Fetch IMEIs from ADB
+            AdbConnector adbConnector = new AdbConnector();
+            List<String> adbImeis = adbConnector.getCleanedImeis(); // Fetch IMEIs from ADB
+            allImeis.addAll(adbImeis); // Add ADB IMEIs to the list
+
+            // Create checkboxes for each unique IMEI
+            double layoutY = 10.0; // Initial Y position for the first checkbox
+            Set<String> uniqueImeis = new HashSet<>(allImeis); // Use a Set to avoid duplicates
+
+            for (String imei : uniqueImeis) {
                 CheckBox checkBox = new CheckBox(imei);
                 checkBox.setLayoutX(10.0); // X position for the checkbox
                 checkBox.setLayoutY(layoutY); // Y position for the checkbox
@@ -117,11 +134,15 @@ public class SendSMSController {
                 checkboxAnchorPane.getChildren().add(checkBox);
             }
 
-            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Database error: " + e.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+
 
     //? load resources
     private void loadReources() {

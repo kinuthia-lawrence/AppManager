@@ -1,7 +1,11 @@
 package com.larrykin.appmanager.utils;
 
+import com.fazecast.jSerialComm.SerialPort;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,31 +20,67 @@ public class AdbConnector {
     }
 
     public void printDeviceInfo() {
+        List<String[]> devices = getConnectedDevices();
+        List<String> comPorts = getAvailableComPorts();
+
+        for (int i = 0; i < devices.size(); i++) {
+            String devicePort = (i < comPorts.size()) ? comPorts.get(i) : "Unknown Port";
+
+            try {
+                // Execute adb shell commands
+                String imeiOutput = executeAdbCommand("shell service call iphonesubinfo 1");
+                String operator = executeAdbCommand("shell getprop gsm.operator.alpha");
+                String signalQualityOutput = executeAdbCommand("shell dumpsys telephony.registry | grep -i 'signal'");
+                String batteryLevel = getBatteryLevel();
+                String phoneModel = getPhoneModel();
+
+                String cleanedImei = extractAndCleanQuotedData(imeiOutput);
+
+                // Parse signal strength from the output
+                int signalLevel = parseSignalStrength(signalQualityOutput);
+                String signalStatus = categorizeSignalLevel(signalLevel);
+
+                // Print all collected information
+                System.out.println("Connected Port: " + devicePort);
+                System.out.println("Phone Model: " + phoneModel);
+                System.out.println("Cleaned IMEI: " + cleanedImei);
+                System.out.println("Operator: " + operator.trim());
+                System.out.println("Signal Quality: " + signalStatus);
+                System.out.println("Battery Level: " + batteryLevel + "%");
+                System.out.println(); // Blank line for better readability
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private List<String[]> getConnectedDevices() {
+        List<String[]> deviceInfoList = new ArrayList<>();
         try {
-            // Execute adb shell commands
-            String imeiOutput = executeAdbCommand("shell service call iphonesubinfo 1");
-            String operator = executeAdbCommand("shell getprop gsm.operator.alpha");
-            String signalQualityOutput = executeAdbCommand("shell dumpsys telephony.registry | grep -i 'signal'");
-            String batteryLevel = getBatteryLevel();
-            String phoneModel = getPhoneModel();
-
-            String imei = parseImei(imeiOutput);
-            String cleanedImei = extractAndCleanQuotedData(imeiOutput);
-
-            // Parse signal strength from the output
-            int signalLevel = parseSignalStrength(signalQualityOutput);
-            String signalStatus = categorizeSignalLevel(signalLevel);
-
-            // Print all collected information
-            System.out.println("Phone Model: " + phoneModel);
-            System.out.println("Cleaned IMEI: " + cleanedImei);
-            System.out.println("Operator: " + operator.trim());
-            System.out.println("Signal Quality: " + signalStatus);
-            System.out.println("Battery Level: " + batteryLevel + "%");
-
+            String devicesOutput = executeAdbCommand("devices");
+            String[] lines = devicesOutput.split("\n");
+            for (String line : lines) {
+                if (line.contains("device")) {
+                    String[] parts = line.split("\\s+");
+                    if (parts.length > 0) {
+                        deviceInfoList.add(new String[]{});
+                    }
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return deviceInfoList;
+    }
+
+    private List<String> getAvailableComPorts() {
+        List<String> comPortsList = new ArrayList<>();
+        SerialPort[] ports = SerialPort.getCommPorts();
+        for (SerialPort port : ports) {
+            comPortsList.add(port.getSystemPortName());
+        }
+        return comPortsList;
     }
 
     private String executeAdbCommand(String command) throws Exception {
@@ -68,24 +108,12 @@ public class AdbConnector {
         return output.toString();
     }
 
-    private String parseImei(String output) {
-        // The IMEI should be a 15-digit number
-        Pattern pattern = Pattern.compile("\\b\\d{15}\\b");
-        Matcher matcher = pattern.matcher(output);
-        if (matcher.find()) {
-            return matcher.group();
-        }
-        return "Unknown IMEI";
-    }
-
     private String extractAndCleanQuotedData(String text) {
-        // Regex to extract data within single quotes
         Pattern pattern = Pattern.compile("'(.*?)'");
         Matcher matcher = pattern.matcher(text);
 
         StringBuilder result = new StringBuilder();
         while (matcher.find()) {
-            // Remove non-numeric characters and spaces
             String cleaned = matcher.group(1).replaceAll("[^0-9]", "");
             result.append(cleaned);
         }
@@ -123,7 +151,7 @@ public class AdbConnector {
     }
 
     private int parseSignalStrength(String adbOutput) {
-        int level = 0; // Default to no signal
+        int level = 0;
         String regex = "lteLevel=(\\d+)";
 
         Pattern pattern = Pattern.compile(regex);
@@ -166,7 +194,35 @@ public class AdbConnector {
         }
         return model;
     }
+
+    public List<String> getCleanedImeis() {
+        List<String> cleanedImeis = new ArrayList<>();
+        try {
+            // Execute the ADB command to get the IMEI information
+            String imeiOutput = executeAdbCommand("shell service call iphonesubinfo 1");
+
+            // Clean and extract the IMEI from the output
+            String cleanedImei = extractAndCleanQuotedData(imeiOutput);
+            if (!cleanedImei.isEmpty()) {
+                cleanedImeis.add(cleanedImei);
+            }
+
+            // If there are multiple IMEIs (for devices with dual SIM), repeat the process
+            for (int i = 2; i <= 3; i++) { // Assuming dual SIMs, check up to 3 calls
+                String additionalImeiOutput = executeAdbCommand("shell service call iphonesubinfo " + i);
+                String additionalCleanedImei = extractAndCleanQuotedData(additionalImeiOutput);
+                if (!additionalCleanedImei.isEmpty()) {
+                    cleanedImeis.add(additionalCleanedImei);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cleanedImeis;
+    }
+
 }
+
 
 /*
 
